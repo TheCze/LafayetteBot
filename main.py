@@ -68,12 +68,14 @@ def answer(status, saidHamilton):
             tweetReply(lafayetteAPI, statustext, status)
         else:
             doFinale(status)
-            users[user] = 0
         if users[user] == 4:
             doMiddle(status)
         if users[user] == 9:
             doFinale(status)
-        users[user] = users[user] + 1
+        if(users[user]>=9):
+            users[user]=0
+        else:
+            users[user] = users[user] + 1
 
     else:
         print("User {} did not match criteria, listindex {}, saidHamilton: {}".format(user, users[user], saidHamilton))
